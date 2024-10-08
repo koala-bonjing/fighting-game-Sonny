@@ -1,0 +1,118 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Press Start 2P", cursive;
+    }
+  </style>
+</head>
+<body>
+  <!-- Red Container div -->
+  <div style="position: relative; display: inline-block">
+    <!---Smaller Div---->
+    <div
+      style="
+        position: absolute;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      "
+    >
+      <!---Player Hp---->
+      <div
+        style="
+          position: relative;
+          width: 100%;
+          border: 4px solid goldenrod;
+          border-right: none;
+        "
+      >
+        <div style="background-color: red; height: 30px"></div>
+        <div
+          id="playerHp"
+          style="
+            position: absolute;
+            background-color: blueviolet;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+          "
+        ></div>
+      </div>
+      <!---Timer---->
+      <div
+        id="timer"
+        style="
+          background-color: rgba(255, 3, 3, 0.616);
+          height: 50px;
+          width: 100px;
+          flex-shrink: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          border: 4px solid rgb(255, 1, 1);
+        "
+      >
+        60
+      </div>
+      <!---Enemy Hp---->
+      <div
+        style="
+          position: relative;
+          width: 100%;
+          border: 3px solid red;
+          border-left: none;
+        "
+      >
+        <div style="background-color: red; height: 30px"></div>
+        <div
+          id="enemyHp"
+          style="
+            position: absolute;
+            background-color: rgb(25, 22, 175);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+          "
+        ></div>
+      </div>
+    </div>
+    <div
+      id="Winner"
+      style="
+        position: absolute;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      "
+    >
+      Tie
+    </div>
+    <canvas></canvas>
+  </div>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+    integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="classes/util.js"></script>
+  <script src="classes/class.js"></script>
+  <script src="main.js"></script>
+</body>
