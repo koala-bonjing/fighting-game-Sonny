@@ -85,7 +85,7 @@ const player = new Fighter({
 });
 
 const enemy = new Fighter({
-  position: { x: 400, y: 100 },
+  position: { x: 900, y: 100 },
   velocity: { x: 0, y: 0 },
   color: "white",
   offSet: { x: -50, y: 0 },
@@ -137,7 +137,7 @@ const enemy = new Fighter({
 });
 
 // Input control keys
-let lastKey;
+let playerLastkey, enemyLastkey;
 const keys = {
   a: { pressed: false },
   d: { pressed: false },
@@ -170,19 +170,19 @@ function animate() {
 
   // Player movement
 
-  if (keys.a.pressed && lastKey === "a") {
+  if (keys.a.pressed && playerLastkey === "a") {
     player.velocity.x = -5;
     player.switchSprite("run");
-  } else if (keys.d.pressed && lastKey === "d") {
+  } else if (keys.d.pressed && playerLastkey === "d") {
     player.velocity.x = 5;
     player.switchSprite("run");
   } else player.switchSprite("idle");
 
   // Enemy movement
-  if (keys.ArrowLeft.pressed && lastKey === "ArrowLeft") {
+  if (keys.ArrowLeft.pressed && enemyLastkey === "ArrowLeft") {
     enemy.velocity.x = -5;
     enemy.switchSprite("run");
-  } else if (keys.ArrowRight.pressed && lastKey === "ArrowRight") {
+  } else if (keys.ArrowRight.pressed && enemyLastkey === "ArrowRight") {
     enemy.velocity.x = 5;
     enemy.switchSprite("run");
   } else enemy.switchSprite("idle");
@@ -259,11 +259,11 @@ window.addEventListener("keydown", (event) => {
     // Player controls
     case "d":
       keys.d.pressed = true;
-      lastKey = "d";
+      playerLastkey = "d";
       break;
     case "a":
       keys.a.pressed = true;
-      lastKey = "a";
+      playerLastkey = "a";
       break;
     case "w":
       if (!player.isJumping) {
@@ -276,18 +276,17 @@ window.addEventListener("keydown", (event) => {
       break;
     }
   }
-
     //Enemy Movement
     if(!enemy.dead){
     switch(event.key){
     // Enemy controls
     case "ArrowRight":
       keys.ArrowRight.pressed = true;
-      lastKey = "ArrowRight";
+      enemyLastkey = "ArrowRight";
       break;
     case "ArrowLeft":
       keys.ArrowLeft.pressed = true;
-      lastKey = "ArrowLeft";
+      enemyLastkey = "ArrowLeft";
       break;
     case "ArrowUp":
       if (!enemy.isJumping) {
